@@ -1,0 +1,16 @@
+.vertical_list{
+	width: 80%;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}.vertical_list li{
+	text-align: center;
+	font-size: 1.6rem;
+	padding: 1rem 0 1rem 0;
+	border-top: solid 3px rgba(0,0,0,0.6);
+}.vertical_list li:last-child{
+	border-bottom: solid 3px rgba(0,0,0,0.6);
+}.vertical_list li:nth-child(2n){
+	background: rgba(100,100,100,0.2);
+}.vertical_list li:hover{
+	background: rgba(0,0,0,0.4);
+}

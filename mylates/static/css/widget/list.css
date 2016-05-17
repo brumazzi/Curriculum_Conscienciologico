@@ -1,0 +1,38 @@
+.list li{
+	border: solid 3px rgba(255,255,255,0.1);
+	padding: 0 0 16px 0;
+	width: 29%;
+	margin: 8px 0 8px 0;
+	display: inline-block;
+}
+
+.list li div{
+	margin-bottom: 16px;
+	width: 100%;
+}
+
+.list h1{
+	text-align: center;
+}
+
+.list h1, .list span{
+	font-size: 1.8rem;
+}
+
+.list span{
+	position: relative;
+	top: -2rem;
+	right: 0px;
+	margin-right: 8px;
+	cursor: pointer;
+	color: green;
+}
+
+.list li article p{
+	color: black;
+	padding: 6px;
+}
+
+.list .edit{
+	color: #246;
+}

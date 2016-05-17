@@ -1,0 +1,33 @@
+*{font-weight: bold;}
+.fleft{float: left;}
+.fright{float: right;}
+.block{display:block;}
+.ghost{display:none;}
+.full{width:100%;height:100%;}
+.logo{font-size: 2rem;}
+.content{width: 90%;}
+.center{
+	display: table;
+	margin: auto;
+}.menu{
+}header{
+	display: block;
+	height: 5rem;
+	line-height: 5rem;
+}footer{
+	height: 3rem;
+	line-height: 3rem;
+}.button, .link{cursor: pointer;}
+p{text-align: justify;}
+.fullw{width: 100%;height: 12rem;}
+.slogo{
+	font-size: 1.4rem;
+	border-bottom: solid 2px #aaa;
+	margin-bottom: 1rem;
+	padding-bottom: 0.2rem;
+	margin-top: 1.6rem;
+}.paper{
+	background: white;
+	padding: 1cm;
+}.paper *{color: black;}
+strong{font-weight: bold;}

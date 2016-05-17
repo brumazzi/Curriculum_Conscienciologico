@@ -1,0 +1,42 @@
+.menu_flop{
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+}.menu{
+	position: fixed;
+	top: 0px;
+	right: 0px;
+}.form{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}.form_login{
+	border-radius: 0 0 2rem 2rem;
+	overflow: hidden;
+}.form .button{
+	width: 50%;
+	border-radius: 0px;
+}fieldset{
+	border: solid 1px gray;
+	padding: 1rem;
+	padding-top: 0px;
+	display: block;
+	margin-bottom: 1rem;
+}.list li{
+	min-width: 18rem;
+}article{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}#pass_rest{
+	margin-top: 0.6rem;
+	text-decoration: underline;
+	padding: 8px;
+}.h_ocre:hover{
+	color: #C4A000;
+}.h_blue:hover{
+	color: #3465A4;
+}.h_gray:hover{
+	color: #888A85;
+}.h_red:hover{
+	color: #EF2929;
+}.cont{font-size: 1rem;
+}.large{font-size: 1.6rem;}

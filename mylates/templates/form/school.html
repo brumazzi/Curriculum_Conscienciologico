@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+
+{%block title%}Escolaridade{%endblock%}
+{%block logo%}MyLates{%endblock%}
+
+{%block main%}
+<div class="form center dark_blue">
+	<h2 class="center logo">Escolaridade</h2>
+	<form action="." method="POST">
+		<input id="" class="entry" type="text" name="date" placeholder="Data de conclusão" required>
+		<input id="" class="entry" type="text" name="grade" placeholder="Grau" maxlength="30" required>
+		<input id="" class="entry" type="text" name="institute" placeholder="Instituição" maxlength="100" required>
+		<fieldset>
+			<legend></legend>
+			<div>
+				<input id="check_1" type="radio" name="phase" value="Incompleto" checked>
+				<label for="check_1">Incompleto</label>
+			</div>
+			<div>
+				<input id="check_2" type="radio" name="phase" value="Completo">
+				<label for="check_2">Completo</label>
+			</div>
+		</fieldset>
+		<input name="form_action" value="school" type="hidden">
+		{%csrf_token%}
+		<table>
+		<input class="button" type="button" value="Cancelar" onclick="location.href='/curriculum'">
+		<input class="button" type="submit" value="Atualizar">
+		</table>
+	</form>
+</div>
+{%endblock%}

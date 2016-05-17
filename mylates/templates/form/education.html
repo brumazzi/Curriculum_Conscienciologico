@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+
+{%block title%}Cursos{%endblock%}
+{%block logo%}MyLates{%endblock%}
+
+{%block main%}
+<div class="form center dark_blue">
+	<h2 class="center logo">Cursos</h2>
+	<form action="." method="POST">
+		<input id="" class="entry" type="text" name="date" placeholder="Data de conclusão" requred>
+		<input id="" class="entry" type="text" name="institute" placeholder="Instituição" maxlength="100" required>
+		<input id="" class="entry" type="text" name="educ_type" placeholder="Curso" maxlength="30" required>
+		<textarea class="gray_blue block fullw" name="tecnologies" placeholder="Tecnologias Aprendidas" required></textarea>
+		<input name="form_action" value="education" type="hidden">
+		{%csrf_token%}
+		<table>
+		<input class="button" type="button" value="Cancelar" onclick="location.href='/curriculum'">
+		<input class="button" type="submit" value="Atualizar">
+		</table>
+	</form>
+</div>
+{%endblock%}

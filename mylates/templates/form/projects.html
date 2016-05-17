@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+{%block title%}Artigos &amp; Projetos{%endblock%}
+{%block logo%}MyLates{%endblock%}
+
+{%block main%}
+<div class="form center dark_blue">
+	<h2 class="center logo">Artigos &amp; Projetos</h2>
+	<form action="." method="POST">
+		<input id="" class="entry block" type="date" name="date_pub" placeholder="Data de Publicação" required>
+		<input id="" class="entry block" type="text" name="title" placeholder="Título" maxlength="120" required>
+		<input id="" class="entry block" type="text" name="char_key" placeholder="Palavra Chave" maxlength="30" required>
+		<input id="" class="entry block" type="text" name="description" placeholder="Descrição" maxlength="512" required>
+		<input id="" class="entry block" type="text" name="url" placeholder="Url" required>
+		<input name="form_action" value="projects" type="hidden">
+		{%csrf_token%}
+		<table>
+		<input class="button" type="button" value="Cancelar" onclick="location.href='/curriculum'">
+		<input class="button" type="submit" value="Atualizar">
+		</table>
+	</form>
+</div>
+{%endblock%}

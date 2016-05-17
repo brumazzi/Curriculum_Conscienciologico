@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" href="{%static 'css/base.css'%}"/>
+	<link rel="stylesheet" href="{%static 'css/page.css'%}"/>
+	<script src="{%static 'js/base.js'%}"></script>
+	<script src="{%static 'js/show_menu.js'%}"></script>
+	<script src="{%static 'js/init.js'%}"></script>
+	<title>Currículo Conscienciológico - {%block title%}{%endblock%}</title>
+</head>
+<body>
+	{%if error%}<span class="msg_box block show_">{{error}}</span>{%endif%}
+	<header class="dark_blue header">
+	<label class="menu_flop fontawesome-reorder dark_blue link " for="menu">
+		<input id="menu" class="ghost" type="checkbox">
+	</label>
+	<a href="/" class="center"><h1 class="logo">Currículo Conscienciológico</h1></a>
+	</header>
+	<main>
+		<div class="content center">{%block main%}{%endblock%}</div>
+	</main>
+	<footer class="dark_blue footer">
+		<div class="content center">
+			<span class="copy fleft">&copy; - Brumazzi - DB</span>
+			<span class="copy fright cont">
+				<a class="fontawesome-envelope-alt h_ocre" href="mailto:brumazzi_daniel@yahoo.com.br"></a>
+				<a class="fontawesome-facebook-sign h_blue" href="https://www.facebook.com/daniel.brumazzi"></a>
+				<a class="fontawesome-github h_gray" href="https://github.com/brumazzi"></a>
+				<a class="fontawesome-google-plus h_red" href="https://plus.google.com/u/0/+DanielBrumazzi"></a>
+				<a class="fontawesome-linkedin h_blue" href="https://www.linkedin.com/in/daniel-brumazzi-2153707b"></a>
+			</span>
+		</div>
+	</footer>
+	<ul class="menu dark_blue">
+		{%for item in menu%}<a href="{{item.href}}"><li class="link {{item.icon}}"> {{item.text}}</li></a>{%endfor%}
+	</ul>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+
+{%block title%}Pal,Con,Cur{%endblock%}
+{%block logo%}MyLates{%endblock%}
+
+{%block main%}
+<div class="form center dark_blue">
+	<h2 class="center logo">Palestras, Congressos e Cursos</h2>
+	<form action="." method="POST">
+		<input id="" class="entry" type="text" name="date" placeholder="Data do Evento" required>
+		<input id="" class="entry" type="text" name="area" placeholder="Area do Evento" maxlength="100" required>
+		<input id="" class="entry" type="text" name="event_name" placeholder="Nome do Evento" maxlength="60" required>
+		<input id="" class="entry" type="text" name="theme" placeholder="Nome do Curso/Palestra" maxlength="60" required>
+		<fieldset>
+			<legend>Fui Como</legend>
+			<div>
+				<input id="check_1" type="radio" name="place" value="Ouvinte" checked>
+				<label for="check_1">Ouvinte</label>
+			</div>
+			<div>
+				<input id="check_2" type="radio" name="place" value="Ministrador">
+				<label for="check_2">Ministrador</label>
+			</div>
+		</fieldset>
+		<input name="form_action" value="lecture" type="hidden">
+		{%csrf_token%}
+		<table>
+		<input class="button" type="button" value="Cancelar" onclick="location.href='/curriculum'">
+		<input class="button" type="submit" value="Atualizar">
+		</table>
+	</form>
+</div>
+{%endblock%}

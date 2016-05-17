@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+{%block title%}Experiencia{%endblock%}
+{%block logo%}MyLates{%endblock%}
+
+{%block main%}
+<div class="form center dark_blue">
+	<h2 class="center logo">Experiencia</h2>
+	<form action="." method="POST">
+		<input id="" class="entry block" type="text" name="start" placeholder="Data de ínicio" required>
+		<input id="" class="entry block" type="text" name="end" placeholder="Data de termino" required>
+		<input id="" class="entry block" type="text" name="foundation" placeholder="Empresa" maxlength="100" required>
+		<input id="" class="entry block" type="text" name="office" placeholder="Cargo" maxlength="30" required>
+		<input id="" class="entry block" type="text" name="description" placeholder="Descrição" required>
+		<input name="form_action" value="jobs" type="hidden">
+		{%csrf_token%}
+		<table>
+		<input class="button" type="button" value="Cancelar" onclick="location.href='/curriculum'">
+		<input class="button" type="submit" value="Atualizar">
+		</table>
+	</form>
+</div>
+{%endblock%}

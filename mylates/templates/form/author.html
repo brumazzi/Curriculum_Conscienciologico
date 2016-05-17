@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+
+{%block title%}Login{%endblock%}
+{%block logo%}MyLates{%endblock%}
+
+{%block main%}
+<div class="form center dark_blue">
+	<h2 class="center logo">Meus Dados</h2>
+	<form action="." method="POST">
+		<input id="" class="entry block" type="text" name="nation" value="{{box.nation}}" placeholder="Nacionalidade" maxlength="20">
+		<input id="" class="entry block" type="text" name="country" value="{{box.country}}" placeholder="UF" maxlength="2">
+		<input id="" class="entry block" type="text" name="city" value="{{box.city}}" placeholder="Cidade" maxlength="30">
+		<input id="" class="entry block" type="text" name="CEP" value="{{box.CEP}}" placeholder="CEP" maxlength="12">
+		<input id="" class="entry block" type="text" name="district" value="{{box.district}}" placeholder="Bairro" maxlength="30">
+		<input id="" class="entry block" type="text" name="address" value="{{box.address}}" placeholder="Endereço" maxlength="60">
+		<input id="" class="entry block" type="number" name="number" value="{{box.number}}" placeholder="Número">
+		<input id="" class="entry block" type="text" name="complement" value="{{box.complement}}" placeholder="Complemento" maxlength="15">
+		<input id="" class="entry block" type="text" name="phone" value="{{box.phone}}" placeholder="Telefone" maxlength="18">
+		<input id="" class="entry block" type="text" name="cell1" value="{{box.cell1}}" placeholder="Celular 1" maxlength="18">
+		<input id="" class="entry block" type="text" name="cell2" value="{{box.cell2}}" placeholder="Celular 2" maxlength="18">
+		<!--<input id="" class="entry block" type="email" name="email" value="{{box.email}}" placeholder="Email para contato">-->
+		<input name="form_action" value="author" type="hidden">
+		{%csrf_token%}
+		<table>
+		<input class="button" type="button" value="Cancelar" onclick="location.href='/curriculum'">
+		<input class="button" type="submit" value="Atualizar">
+		</table>
+	</form>
+</div>
+{%endblock%}

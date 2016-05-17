@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%load staticfiles%}
+
+{%block title%}Register{%endblock%}
+
+{%block logo%}MyLates{%endblock%}
+
+{%block main%}
+<div class="form center dark_blue">
+	<h2 class="center logo">Registrar</h2>
+	<form class="full form_login" action="." method="POST">
+		<input id="" class="entry block" type="text" name="name" placeholder="Nome Completo" required>
+		<input id="" class="entry block" type="text" name="niver" placeholder="Nascimento" required>
+		<input id="" class="entry block" type="email" name="email" placeholder="E-Mail" required>
+		<input id="" class="entry block" type="text" name="login" placeholder="Login" required>
+		<input id="" class="entry block" type="password" name="passwd" placeholder="Senha" required>
+		<input id="" class="entry block" type="password" name="passwd_re" placeholder="Confirmar Senha" required>
+		<table>
+			<input class="button gray_blue" type="button" value="Login" onclick=" location.href = '/' ">
+			<input class="button gray_blue" type="submit" value="Registrar">
+		</table>
+		{%csrf_token%}
+	</form>
+</div>
+{%endblock %}

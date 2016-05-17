@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%load staticfiles%}
+
+{%block title%}Login{%endblock%}
+
+{%block logo%}MyLates{%endblock%}
+
+{%block main%}
+<div class="form center dark_blue">
+	<h2 class="center logo">Login</h2>
+	<form class="full form_login" action="." method="POST">
+		<input id="" class="entry block" type="text" name="login" placeholder="Login" required>
+		<input id="" class="entry block" type="password" name="passwd" placeholder="Senha" required>
+		<table>
+			<input class="button gray_blue" type="submit" value="Login">
+			<input class="button gray_blue" type="button" value="Registrar" onclick=" location.href = '/register/' ">
+		</table>
+		{%csrf_token%}
+	</form>
+	<form id="rp" action="." method="GET" class="ghost">
+		<input type="email" class="entry block center" placeholder="E-mail" name="email">
+		{%csrf_token%}
+		<input type="submit" class="button center block gray_blue" value="Enviar">
+	</form>
+	<span id="pass_rest" class="center button link">Recuperar senha</span>
+</div>
+{%endblock %}

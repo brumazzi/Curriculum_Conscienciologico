@@ -1,0 +1,14 @@
+.form{
+	padding: 1rem;
+}
+.form form{
+	padding: 2px;
+}
+[class*=form] .entry, [class*=form] h2{
+	margin-bottom: 1rem;
+}
+.b_round{
+	border-radius: 0px 0px 10rem 10rem;
+	/*background: red;*/
+	/*overflow: hidden;*/
+}

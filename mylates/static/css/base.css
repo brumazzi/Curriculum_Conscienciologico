@@ -1,0 +1,22 @@
+@import url("./default/reset.css");
+@import url("./default/print.css");
+@import url("./default/color.css");
+@import url("./default/default_style.css");
+
+@import url("./widget/form.css");
+@import url("./widget/input.css");
+@import url("./widget/menu.css");
+@import url("./widget/footer.css");
+@import url("./widget/msg_box.css");
+@import url("./widget/list.css");
+@import url("./widget/vertical_list.css");
+
+@import url("./animation/menu.css");
+@import url("./animation/msg_box.css");
+
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+	font-family: 'FontAwesome', sans-serif;
+}

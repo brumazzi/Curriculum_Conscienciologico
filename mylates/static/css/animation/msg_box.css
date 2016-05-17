@@ -1,0 +1,8 @@
+@KeyFrames show_message_box{
+	0%{height:0px;}
+	15%{height:25vh;}
+	85%{height:25vh;}
+	100%{height:0px;}
+}
+
+.show_{animation: show_message_box 5s;}

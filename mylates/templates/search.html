@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+{%load staticfiles%}
+
+{%block title%}Search{%endblock%}
+
+{%block logo%}MyLates{%endblock%}
+
+{%block main%}
+{%if not detect%}
+	<div class="form center dark_blue">
+		<h2 class="center logo">Buscar Curriculo</h2>
+		<form class="full form_search" action="." method="POST">
+			<input id="" class="entry block" type="text" name="keys" placeholder="Chaves">
+			<fieldset>
+				<legend>Pesquisar: </legend>
+				<div><input id="check1" type="radio" name="radio" value="1" checked><label for="check1">Curriculo por nome</label></div>
+				<div><input id="check2" type="radio" name="radio" value="2"><label for="check2">Curriculo por idade</label></div>
+				<div><input id="check3" type="radio" name="radio" value="3"><label for="check3">Trabalhos por autor</label></div>
+				<div><input id="check4" type="radio" name="radio" value="4"><label for="check4">Trabalhos por título</label></div>
+				<div><input id="check5" type="radio" name="radio" value="5"><label for="check5">Trabalhos por palavras chave</label></div>
+			</fieldset>
+			<input class="button gray_blue block center" type="submit" value="buscar">
+			{%csrf_token%}
+		</form>
+	</div>
+{%else%}
+	<ul class="vertical_list center dark_blue">
+	{%for x in data%}
+		{%if detect <= 2%}
+		<li class="link" onclick="location.href='/view/{{x.id}}'">{{x.name}}</li>
+		{%elif detect == 3%}
+		{%for y in x.articles%}
+		<li class="link" onclick="location.href='{{y.url}}'">{{y.title}} - {{x.author}}</li>
+		{%endfor %}
+		{%elif detect > 3%}
+		<li class="link" onclick="location.href='{{x.url}}'">{{x.title}} - {{x.date_pub}}</li>
+		{%endif%}
+	{%endfor%}
+	</ul>
+{%endif%}
+{%endblock %}

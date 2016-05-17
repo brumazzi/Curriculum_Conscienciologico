@@ -1,0 +1,13 @@
+.msg_box{
+	height: 0px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index:1;
+	background-color: #001932;
+	text-align: center;
+	font-size: 2rem;
+	line-height: 25vh;
+	overflow: hidden;
+}

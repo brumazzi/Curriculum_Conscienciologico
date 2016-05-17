@@ -1,0 +1,26 @@
+input{
+	height: 2rem;
+}
+
+.entry{
+	padding: 0px 10px 0px 10px;
+	border-radius: 2rem;
+	border-bottom: solid 3px rgba(255,255,255,0.2);
+	width: 92%;
+}
+
+.button{
+	text-align: center;
+	border-radius: 6px;
+}
+
+.button:hover{
+	background: rgba(160,160,160,0.4);
+}
+
+[type=radio]{
+	position: relative;
+	display: inline-block;
+	margin-right: 6px;
+	top: 9px;
+}

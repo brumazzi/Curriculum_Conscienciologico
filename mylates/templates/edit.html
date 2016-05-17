@@ -1,0 +1,89 @@
+{%extends 'base.html'%}
+{%load staticfiles%}
+
+{%block title%}Home{%endblock%}
+
+{%block logo%}MyLates{%endblock%}
+
+{%block main%}
+{%if not edit%}
+	<ul class='vertical_list center dark_blue'>
+	{%for x in fields%}
+		<li class="item link" onclick="location.href = '/edit/{{offset}}/{{x.id}}'">
+		{%if offset == 'school'%}
+			{{x.institute}} - {{x.grade}}
+		{%elif offset == 'education'%}
+			{{x.institute}} - {{x.educ_type}}
+		{%elif offset == 'jobs'%}
+			{{x.start}} : {{x.end}} - {{x.foundation}}
+		{%elif offset == 'projects'%}
+			{{x.date_pub}} - {{x.title}}
+		{%elif offset == 'lecture'%}
+			{{x.date}} - {{x.event_name}}
+		{%endif%}
+		<span><a class="fontawesome-remove h_red large red" href="/edit/{{offset}}?act=1&item={{x.id}}"></a></span>
+		</li>
+	{%endfor%}
+	</ul>
+{%else%}
+	<form action="/edit/{{offset}}/" method="POST" class='form center dark_blue'>
+	{%if fields%}
+		{%if offset == 'school'%}
+		<input id="" class="entry" type="text" name="date" placeholder="Data de conclusão" value="{{fields.date}}" required>
+		<input id="" class="entry" type="text" name="grade" placeholder="Grau" maxlength="30" value="{{fields.grade}}" required>
+		<input id="" class="entry" type="text" name="institute" placeholder="Instituição" maxlength="100" value="{{fields.institute}}" required>
+		<fieldset>
+			<legend></legend>
+			<div>
+				<input id="check_1" type="radio" name="phase" value="Incompleto"{%if fields.phase == 'Incompleto'%}checked{%endif%}>
+				<label for="check_1">Incompleto</label>
+			</div>
+			<div>
+				<input id="check_2" type="radio" name="phase" value="Completo" {%if fields.phase != 'Incompleto'%}checked{%endif%}>
+				<label for="check_2">Completo</label>
+			</div>
+		</fieldset>
+		{%elif offset == 'education'%}
+			<input id="" class="entry" type="text" name="date" placeholder="Data de conclusão" value="{{fields.date}}" required>
+			<input id="" class="entry" type="text" name="institute" placeholder="Instituição" maxlength="100" value="{{fields.institute}}" required>
+			<input id="" class="entry" type="text" name="educ_type" placeholder="Curso" maxlength="30" value="{{fields.educ_type}}" required>
+			<textarea class="gray_blue block fullw" name="tecnologies" placeholder="Tecnologias Aprendidas" required>{{fields.tecnologies}}</textarea>
+		{%elif offset == 'jobs'%}
+			<input id="" class="entry block" type="text" name="start" placeholder="Data de ínicio" value="{{fields.start}}" required>
+			<input id="" class="entry block" type="text" name="end" placeholder="Data de termino" value="{{fields.end}}" required>
+			<input id="" class="entry block" type="text" name="foundation" placeholder="Empresa" maxlength="100" value="{{fields.foundation}}" required>
+			<input id="" class="entry block" type="text" name="office" placeholder="Cargo" maxlength="30" value="{{fields.office}}" required>
+			<input id="" class="entry block" type="text" name="description" placeholder="Descrição" value="{{fields.description}}" required>
+		{%elif offset == 'projects'%}
+			<input id="" class="entry block" type="text" name="date_pub" placeholder="Data de Publicação" value="{{fields.date_pub}}" required>
+			<input id="" class="entry block" type="text" name="title" placeholder="Título" maxlength="120" value="{{fields.title}}"required>
+			<input id="" class="entry block" type="text" name="char_key" placeholder="Palavra Chave" maxlength="30" value="{{fields.char_key}}" required>
+			<input id="" class="entry block" type="text" name="description" placeholder="Descrição" maxlength="512" value="{{fields.description}}" required>
+			<input id="" class="entry block" type="text" name="url" placeholder="Url" value="{{fields.url}}" required>
+		{%elif offset == 'lecture'%}
+			<input id="" class="entry" type="text" name="date" placeholder="Data do Evento" value="{{fields.date}}" required>
+			<input id="" class="entry" type="text" name="area" placeholder="Area do Evento" value="{{fields.area}}" maxlength="100" required>
+			<input id="" class="entry" type="text" name="event_name" placeholder="Nome do Evento" maxlength="60" value="{{fields.event_name}}" required>
+			<input id="" class="entry" type="text" name="theme" placeholder="Nome do Curso/Palestra" maxlength="60" value="{{fields.theme}}" required>
+			<fieldset>
+				<legend>Fui Como</legend>
+				<div>
+					<input id="check_1" type="radio" name="place" value="Ouvinte" {%if fields.place == 'Ouvinte'%}checked{%endif%}>
+					<label for="check_1">Ouvinte</label>
+				</div>
+				<div>
+					<input id="check_2" type="radio" name="place" value="Ministrador" {%if fields.place != 'Ouvinte'%}checked{%endif%}>
+					<label for="check_2">Ministrador</label>
+				</div>
+			</fieldset>
+		{%endif%}
+	{%endif%}
+		{%csrf_token%}
+			<input type="hidden" name="id" value="{{fields.id}}">
+		<table>
+			<input class="button" type="button" value="Cancelar" onclick="location.href='/curriculum/'">
+			<input class="button" type="submit" value="Atualizar">
+		</table>
+	</form>
+{%endif%}
+{%endblock %}

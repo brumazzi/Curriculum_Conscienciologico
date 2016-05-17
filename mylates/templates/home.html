@@ -1,0 +1,102 @@
+{%extends 'base.html'%}
+{%load staticfiles%}
+
+{%block title%}Home{%endblock%}
+
+{%block logo%}MyLates{%endblock%}
+
+{%block main%}
+<article class="paper fblack">
+	<h1 class="logo">{{self.name}}</h1>
+	<section class="header">
+		<h2 class="slogo">Descrição</h2>
+		<h3>
+			<span>Nacionalidade: {{self.nation}},</span>
+			<span>Nascimento: {{self.niver}}</span>
+		</h3>
+		<h3>
+			<span>Endereço: {{self.address}} {{self.number}}</span>
+		</h3>
+		<h3>
+			<span>Cidade: {{self.city}} - {{self.country}},</span>
+			<span>CEP: {{self.CEP}}</span>
+		</h3>
+		<h3>
+			<span>Contato: 
+				{%if self.phone%}{{self.phone}}{%endif%} | {%if self.cell1%}{{self.cell1}}{%endif%} | {%if self.cell2%}{{self.cell2}}{%endif%}
+			</span>
+		</h3>
+	</section>
+	<section class="school">
+		<h2 class="slogo">Escolaridade</h2>
+		<table>
+			{%for x in school%}
+			<tr>
+				<td><strong>{{x.date}}</strong></td>
+				<td>| {{x.institute}} {{x.grate}} - <strong>{{x.phase}}</strong></td>
+			</tr>
+			{%endfor%}
+		</table>
+	</section>
+	<section class="education">
+		<h2 class="slogo">Cursos</h2>
+		<table>
+			{%for x in education%}
+			<tr>
+				<td><strong>{{x.date}}</strong></td>
+				<td>| {{x.institute}} {{educ_type}}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><p>{{x.tecnologies}}</p></td>
+			</tr>
+			{%endfor%}
+		</table>
+	</section>
+	<section class="jobs">
+		<h2 class="slogo">Experiencia</h2>
+		<table>
+			{%for x in jobs%}
+			<tr>
+				<td><strong>{{x.start}} - {{x.end}}</strong></td>
+				<td>| {{x.foundation}}: {{x.office}}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>{{x.description}}</td>
+			</tr>
+			{%endfor%}
+		</table>
+	</section>
+	<section class="jobs">
+		<h2 class="slogo">Projetos</h2>
+		<table>
+			{%for x in projects%}
+			<tr>
+				<td><strong>{{x.date_pub}}</strong></td>
+				<td>| {{x.title}}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>{{x.description}}</td>
+			</tr>
+			{%endfor%}
+		</table>
+	</section>
+	<section class="lecture">
+		<h2 class="slogo">Palestras e Congressos</h2>
+		<table>
+			{%for x in lecture%}
+			<tr>
+				<td><strong>{{x.date}}</strong></td>
+				<td>| {{x.event_name}}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>{{x.theme}}</td>
+			</tr>
+			{%endfor%}
+		</table>
+	</section>
+</article>
+{%endblock %}

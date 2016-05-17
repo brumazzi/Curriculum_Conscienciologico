@@ -1,0 +1,8 @@
+@media print{
+	.header, .footer, .menu, .msg_box{display: none;}
+	.paper{
+		display:block;
+		width: 19cm;
+		height: 22cm;
+	}
+}

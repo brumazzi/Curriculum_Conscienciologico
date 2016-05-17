@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%load staticfiles%}
+
+{%block title%}Curriculum{%endblock%}
+
+{%block logo%}MyLates{%endblock%}
+{%block COMP%}
+<div class="form_load opaque fullscreen" onload="this.innerHTML = '{{form}}'">{{form}}</div>
+{%endblock%}
+{%block main%}
+<ul class="list">
+	<center>
+	{%for item in list_items%}<li class="ark_blue">
+		<div class="dark_blue">
+			<h1 class="item">{{item.descr}}</h1>
+			<span class="{{item.icon_edit}} fright edit" onclick="location.href='/edit/{{item.form}}'"></span>
+			<span class="{{item.icon}} fright" onclick=" load_form('{{item.form}}') "></span>
+		</div>
+		<article class="content">
+			<p>
+				{{item.memo}}
+			</p>
+			
+		</article>
+	</li>
+	{%endfor%}
+	</center>
+</ul>
+{%endblock %}

@@ -1,0 +1,17 @@
+@KeyFrames slide_open{
+	from{width:0px;}
+	to{width:15%;}
+}@KeyFrames slide_close{
+	from{width:15%;}
+	to{width:0px;}
+}@KeyFrames rotate_open{
+	from{transform: rotate(0deg);}
+	to{transform: rotate(270deg);}
+}@KeyFrames rotate_close{
+	from{transform: rotate(270deg);}
+	to{transform: rotate(0deg);}
+}.open_{animation: slide_open 0.5s; width:15%;}
+.close_{animation: slide_close 0.5s; width:0px;}
+.r_open_{animation: rotate_open 0.5s; transform: rotate(90deg);}
+.r_close_{animation: rotate_close 0.5s; transform: rotate(0deg);}
+.close_:hover{animation: slide_open 0.5s; width:15%;}
