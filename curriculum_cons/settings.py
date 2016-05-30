@@ -15,6 +15,13 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Send Mail Configuration
+from .mail_setting import *
+EMAIL_USE_TLS = True
+EMAIL_HOST = MAIL_SMTP
+EMAIL_HOST_USER = MAIL_USER
+EMAIL_HOST_PASSWORD = MAIL_PASSWORD
+EMAIL_ORT = MAIL_PORT
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -81,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'MyLates',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': '',
         'HOST':'127.0.0.1',
         'PORT':'3306',
     }

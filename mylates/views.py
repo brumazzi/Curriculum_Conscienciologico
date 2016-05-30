@@ -4,13 +4,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.conf import settings
-import ctypes
+from django.core.mail import send_mail as sm
+#import ctypes
 
 import datetime as dt
 
 from .models import Author ,School, Education, Jobs, Projects, Lectures
 
-lib = ctypes.cdll.LoadLibrary("./sendmail.so")
+#lib = ctypes.cdll.LoadLibrary("./sendmail.so")
 
 no_login_menu = [
     {'href':'/', 'icon':'fontawesome-home', 'text':'Home'},
@@ -54,7 +55,7 @@ def index(request):
         return redirect('home')
     res = send_mail(request);
     if res == 1:
-        return render(request, 'login.html', {'menu':Menu,'error':"E-mail endiado para %s!" % request.GET['email']})
+        return render(request, 'login.html', {'menu':Menu,'error':"E-mail enviado para %s!" % request.GET['email']})
     elif res == 2:
         return render(request, 'login.html', {'menu':Menu,'error':"E-mail inálido!"})
 
@@ -276,10 +277,10 @@ def send_mail(request):
     if 'email' in request.GET:
         try:
             a = Author.objects.get(email=request.GET['email'])
-	    if lib.send_mail("brumazzi_daniel@yahoo.com.br",bytes(a.email),r"Password Restore", r"Login: %s | Password: %s" %(bytes(a.login), bytes(a.password)), r"brumazzi_daniel", r"brumazzi0321*") == 1:
-                return 1
-            else:
-                return 2
+            subject = "Currículo Conscienciológico - Recuperar Senha"
+            message = "Login: %s | Password: %s" %(a.login, a.password)
+            sm(subject, message, settings.EMAIL_HOST_USER, [a.email], fail_silently=False)
+            return 1
 	except:
             return 2
     return 0

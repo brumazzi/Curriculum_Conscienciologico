@@ -19,15 +19,14 @@ from mylates.views import *
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url('^$', index, name='home');
-    url('^register/$', register);
-    url('^search/$', search);
-    url('^logout/$', logout_view);
-    url('^curriculum/$', curriculum);
-    url('^view/(\d+)/$', view);
-    url('^view/$', view);
-    url('^edit/(?P<offset>[^/]+)/$', edit);
-    url('^edit/(?P<offset>[^/]+)/(?P<f_id>[^/]+)/$', edit);
-    url('^restore/$', send_mail);
-
+    url('^$', index, name='home'),
+    url('^register/$', register),
+    url('^search/$', search),
+    url('^logout/$', logout_view),
+    url('^curriculum/$', curriculum),
+    url('^view/(\d+)/$', view),
+    url('^view/$', view),
+    url('^edit/(?P<offset>[^/]+)/$', edit),
+    url('^edit/(?P<offset>[^/]+)/(?P<f_id>[^/]+)/$', edit),
+    url('^restore/$', send_mail),
 ]
